@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=0
-x2=0.003
+x2=0.00236
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -26,17 +26,39 @@ unitx=1
 logx=0
 logy=0
 }
-N 85 -130 85 -110 {
+B 2 985 -1445 1785 -1045 {flags=graph
+y1=0
+y2=1.9
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=0.00236
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+color=4
+node=vdac}
+N 125 -130 125 -110 {
 lab=GND}
-N 85 -230 85 -190 {
+N 125 -230 125 -190 {
 lab=VSS}
-N 165 -130 165 -110 {
+N 205 -130 205 -110 {
 lab=GND}
-N 85 -110 85 -90 {
+N 125 -110 125 -90 {
 lab=GND}
-N 165 -230 165 -190 {
+N 205 -230 205 -190 {
 lab=VDD}
-N 85 -110 165 -110 {
+N 125 -110 205 -110 {
 lab=GND}
 N 305 -130 305 -110 {
 lab=GND}
@@ -104,6 +126,24 @@ N 865 -230 865 -190 {
 lab=D0}
 N 785 -110 865 -110 {
 lab=GND}
+N 40 -230 40 -190 {
+lab=VDD}
+N 40 -130 40 -110 {
+lab=Ib}
+N 40 -110 40 -90 {
+lab=Ib}
+N 420 -475 560 -475 {
+lab=VOUT}
+N 520 -415 560 -415 {
+lab=VDAC}
+N 520 -415 520 -340 {
+lab=VDAC}
+N 520 -340 760 -340 {
+lab=VDAC}
+N 760 -445 760 -340 {
+lab=VDAC}
+N 700 -445 760 -445 {
+lab=VDAC}
 C {devices/simulator_commands_shown.sym} 1030 -725 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
@@ -133,12 +173,12 @@ value="
     quit 0
 .endc
 "}
-C {/home/unixpoly/analog/projects/sky130/r2r-dac/xschem/r2r.sym} 225 -345 0 0 {name=X1}
-C {devices/vsource.sym} 85 -160 0 0 {name=V0 value=0 savecurrent=false}
-C {devices/gnd.sym} 85 -90 0 0 {name=l3 lab=GND}
-C {devices/vsource.sym} 165 -160 0 0 {name=V2 value=\{vdd\} savecurrent=false}
-C {devices/lab_wire.sym} 85 -230 0 0 {name=p1 sig_type=std_logic lab=VSS}
-C {devices/lab_wire.sym} 165 -230 0 0 {name=p5 sig_type=std_logic lab=VDD}
+C {analog/projects/sky130/r2r-dac/xschem/r2r.sym} 225 -345 0 0 {name=X1}
+C {devices/vsource.sym} 125 -160 0 0 {name=V0 value=0 savecurrent=false}
+C {devices/gnd.sym} 125 -90 0 0 {name=l3 lab=GND}
+C {devices/vsource.sym} 205 -160 0 0 {name=V2 value=\{vdd\} savecurrent=false}
+C {devices/lab_wire.sym} 125 -230 0 0 {name=p1 sig_type=std_logic lab=VSS}
+C {devices/lab_wire.sym} 205 -230 0 0 {name=p5 sig_type=std_logic lab=VDD}
 C {sky130_fd_pr/corner.sym} 30 -1410 0 0 {name=CORNER only_toplevel=false corner=tt}
 C {devices/launcher.sym} 320 -830 0 0 {name=h26
 descr="Annotate OP" 
@@ -175,3 +215,11 @@ C {devices/vsource.sym} 545 -160 0 0 {name=V5 value="PULSE(0 1.8 0 1n 1n 160u 32
 C {devices/vsource.sym} 465 -160 0 0 {name=V4 value="PULSE(0 1.8 0 1n 1n 320u 640u)" savecurrent=false}
 C {devices/vsource.sym} 385 -160 0 0 {name=V3 value="PULSE(0 1.8 0 1n 1n 640u 1280u)" savecurrent=false}
 C {devices/vsource.sym} 305 -160 0 0 {name=V1 value="PULSE(0 1.8 0 1n 1n 1280u 2360u)" savecurrent=false}
+C {analog/projects/sky130/r2r-dac/xschem/ota_5t.sym} 560 -445 0 0 {name=X2}
+C {devices/isource.sym} 40 -160 0 0 {name=I0 value=10u}
+C {devices/lab_wire.sym} 40 -90 2 0 {name=p21 sig_type=std_logic lab=Ib}
+C {devices/lab_wire.sym} 40 -230 0 0 {name=p22 sig_type=std_logic lab=VDD}
+C {devices/lab_wire.sym} 560 -445 2 1 {name=p23 sig_type=std_logic lab=Ib}
+C {devices/lab_wire.sym} 760 -445 0 1 {name=p24 sig_type=std_logic lab=VDAC}
+C {devices/lab_wire.sym} 640 -505 0 1 {name=p25 sig_type=std_logic lab=VDD}
+C {devices/lab_wire.sym} 640 -385 0 1 {name=p26 sig_type=std_logic lab=VSS}
